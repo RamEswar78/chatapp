@@ -3,7 +3,7 @@ import { verifyToken } from "../utils/jwt.js";
 
 export interface AuthRequest extends Request {
   user?: {
-    userId: string;
+    userName: string;
     email: string;
   };
 }
@@ -21,7 +21,7 @@ export function authMiddleware(
   try {
     const decoded = verifyToken(token);
     req.user = {
-      userId: decoded.userId,
+      userName: decoded.userName,
       email: decoded.email,
     };
     next();

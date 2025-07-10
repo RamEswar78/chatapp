@@ -4,7 +4,7 @@ const JWT_SECRET = process.env.JWT_SECRET as string;
 const JWT_EXPIRY = "7d";
 
 export interface Jwtpayload {
-  userId: string;
+  userName: string;
   email: string;
 }
 
@@ -20,7 +20,7 @@ export function verifyToken(token: string): Jwtpayload {
   if (
     typeof decoded === "object" &&
     decoded !== null &&
-    "userId" in decoded &&
+    "userName" in decoded &&
     "email" in decoded
   ) {
     return decoded as Jwtpayload;

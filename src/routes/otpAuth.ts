@@ -29,7 +29,6 @@ otpRouter.post("/sendOtp", async (req: Request, res: Response) => {
   }
 });
 
-
 // Endpoint to verify OTP
 otpRouter.post("/verifyOtp", async (req: Request, res: Response) => {
   const { email, otp } = req.body;
@@ -47,7 +46,7 @@ otpRouter.post("/verifyOtp", async (req: Request, res: Response) => {
         createUser(email) // Create user in the database
           .then((user) => {
             const token = generateJwtToken({
-              userId: user.id.toString(),
+              userName: user.username as string,
               email: email,
             });
             res
