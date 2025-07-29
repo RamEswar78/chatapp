@@ -1,4 +1,4 @@
-import { transporter } from "../utils/nodemailer.config.js";
+import { transporter } from "../utils/nodemailer.config";
 import fs from "fs";
 import bcrypt from "bcrypt";
 
